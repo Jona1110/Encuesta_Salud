@@ -10,206 +10,27 @@
     --shadow: 0 10px 30px rgba(155, 137, 207, 0.12);
 }
 
-* { box-sizing: border-box; }
+* { 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
 
 body {
     background: var(--bg-page);
     font-family: 'Plus Jakarta Sans', sans-serif;
-    margin: 0;
     display: flex;
     justify-content: center;
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
-}
-
-/* Barra de progreso */
-.progress-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: var(--primary-light);
-    z-index: 1000;
-}
-
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    transition: width 0.4s ease;
-}
-
-.survey-container {
-    background: var(--white);
-    max-width: 800px; /* Un poco más ancho para acomodar los escudos */
-    width: 95%;
-    margin: 60px 20px;
-    padding: 60px;
-    border-radius: 40px;
-    box-shadow: var(--shadow);
-    animation: slideUp 0.8s ease;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Encabezado con Escudos */
-.main-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.header-text {
-    flex: 1;
-}
-
-.escudo-img {
-    width: 90px; /* Tamaño ajustable */
-    height: 90px;
-    padding: 8px; /* Espacio entre el logo y el marco */
-    border: 3px solid var(--primary-light); /* El marco */
-    border-radius: 20px; /* Esquinas redondeadas del marco */
-    background: var(--white); /* Fondo para que resalte */
-    object-fit: contain;
-    box-shadow: 0 4px 15px rgba(155, 137, 207, 0.15); /* Sombra suave */
-    transition: transform 0.3s ease;
-}
-
-.escudo-img:hover {
-    transform: scale(1.05); /* Efecto al pasar el mouse */
-}
-
-.badge {
-    background: var(--primary-light);
-    color: var(--primary-dark);
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-h1 { font-size: 2.2rem; font-weight: 700; margin: 0 0 10px 0; color: var(--primary-dark); }
-.header-text p { color: var(--text-light); font-size: 1.1rem; max-width: 450px; margin: 0 auto; }
-
-/* Grupos de preguntas */
-.question-group {
-    margin-bottom: 50px;
-    animation: fadeIn 1s ease both;
-}
-
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-label.main-label {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 25px;
-    line-height: 1.4;
-}
-
-/* Tarjetas de Opción */
-.option-item {
-    display: flex;
-    align-items: center;
-    padding: 18px 24px;
-    margin-bottom: 12px;
-    border-radius: 20px;
-    border: 2px solid #f0f0f7;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-}
-
-.option-item:hover {
-    border-color: var(--primary-light);
-    background: var(--bg-page);
-    transform: translateX(5px);
-}
-
-.option-item.selected {
-    border-color: var(--primary);
-    background: var(--primary-light);
-    box-shadow: 0 5px 15px rgba(155, 137, 207, 0.1);
-}
-
-input[type="radio"], input[type="checkbox"] {
-    accent-color: var(--primary);
-    width: 20px;
-    height: 20px;
-    margin-right: 18px;
-}
-
-select {
-    width: 100%;
-    padding: 18px;
-    border-radius: 20px;
-    border: 2px solid #f0f0f7;
-    font-size: 1rem;
-    font-family: inherit;
-    outline: none;
-    cursor: pointer;
-}
-
-input[type="range"] {
-    width: 100%;
-    accent-color: var(--primary);
-    margin: 20px 0;
-}
-
-.range-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--primary-dark);
-}
-
-button {
-    width: 100%;
-    background: var(--primary-dark);
-    color: white;
-    padding: 22px;
-    border: none;
-    border-radius: 22px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(122, 105, 173, 0.3);
-}
-
-button:hover {
-    background: var(--text-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(122, 105, 173, 0.4);
-}
-
-/* Estilo para pantallas móviles */
-@media (max-width: 600px) {
-    .main-header {
-        flex-direction: column; /* Apila los escudos en móvil */
-        gap: 10px;
-    }
-    .escudo-img { width: 70px; height: 70px; }
-    .survey-container { padding: 40px 25px; margin: 40px 15px; }
-    h1 { font-size: 1.8rem; }
+    min-height: 100vh;
 }
 
 /* Botón de Acceso Admin Flotante */
 .admin-access-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     width: 45px !important;
     height: 45px;
     padding: 0 !important;
@@ -231,9 +52,9 @@ button:hover {
     background: var(--primary-light) !important;
 }
 
-/* Modal de Login (Oculto por defecto) */
+/* Modal de Login */
 .modal {
-    display: none; /* JS cambia esto a 'flex' */
+    display: none;
     position: fixed;
     z-index: 2000;
     left: 0;
@@ -244,13 +65,14 @@ button:hover {
     backdrop-filter: blur(5px);
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .modal-content {
     background-color: var(--white);
-    padding: 30px;
+    padding: 25px;
     border-radius: 24px;
-    width: 90%;
+    width: 100%;
     max-width: 350px;
     text-align: center;
     box-shadow: var(--shadow);
@@ -264,12 +86,13 @@ button:hover {
 
 .modal-content input {
     width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 10px;
+    padding: 14px 15px;
+    margin-bottom: 12px;
     border: 2px solid #f0f0f7;
     border-radius: 12px;
     outline: none;
     font-family: inherit;
+    font-size: 16px; /* Evita zoom automático en iOS */
 }
 
 .modal-actions {
@@ -279,9 +102,274 @@ button:hover {
 }
 
 .btn-secondary { 
-    background: #eee !important; 
+    background: #f1f1f5 !important; 
     color: #666 !important; 
     box-shadow: none !important; 
     padding: 12px !important; 
-    font-size: 0.9rem !important; 
+    font-size: 0.95rem !important; 
+}
+
+/* Estilos de la Encuesta */
+.survey-container {
+    background: var(--white);
+    max-width: 850px;
+    width: 100%;
+    margin: 40px 15px;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Contenedor de logos para alineación */
+.logos-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-text { flex: 1; }
+
+.escudo-img {
+    width: 85px;
+    height: 85px;
+    padding: 6px;
+    border: 3px solid var(--primary-light);
+    border-radius: 18px;
+    background: var(--white);
+    object-fit: contain;
+    box-shadow: 0 4px 12px rgba(155, 137, 207, 0.1);
+}
+
+.badge {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+h1 { 
+    font-size: 1.8rem; 
+    font-weight: 700; 
+    margin: 5px 0; 
+    color: var(--primary-dark);
+    line-height: 1.2;
+}
+
+.header-text p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.4;
+    margin-top: 10px;
+}
+
+/* Grupos de preguntas */
+.question-group {
+    margin-bottom: 40px;
+}
+
+label.main-label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* Opciones */
+.option-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    border: 2px solid #f0f0f7;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-item:active {
+    transform: scale(0.98);
+}
+
+.option-item.selected {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+input[type="radio"], input[type="checkbox"] {
+    accent-color: var(--primary);
+    width: 22px;
+    height: 22px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+select {
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    border: 2px solid #f0f0f7;
+    font-size: 1rem;
+    outline: none;
+    background: var(--white);
+    cursor: pointer;
+}
+
+/* Rango */
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--primary);
+    margin: 15px 0;
+    height: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* Acciones Finales */
+.footer-actions {
+    margin-top: 40px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background: var(--primary-dark);
+    color: white;
+    padding: 20px;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(122, 105, 173, 0.2);
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: #6a5ba1;
+    transform: translateY(-2px);
+}
+
+/* Barra de progreso */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--primary-light);
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+/* --- RESPONSIVIDAD TOTAL PARA MÓVILES --- */
+@media (max-width: 768px) {
+    .survey-container {
+        margin: 20px 10px;
+        padding: 30px 20px;
+        border-radius: 24px;
+    }
+
+    .main-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .logos-container {
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .escudo-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .survey-container {
+        margin: 10px 5px;
+        padding: 25px 15px;
+    }
+
+    .escudo-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .header-text p {
+        font-size: 0.85rem;
+    }
+
+    label.main-label {
+        font-size: 1rem;
+    }
+
+    .option-item {
+        padding: 12px 15px;
+    }
+
+    button[type="submit"] {
+        padding: 16px;
+        font-size: 1rem;
+    }
+
+    .admin-access-btn {
+        top: 10px;
+        right: 10px;
+        width: 40px !important;
+        height: 40px;
+    }
+}
+
+/* Ajustes para pantallas extremadamente pequeñas */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .logos-container {
+        gap: 15px;
+    }
+
+    .escudo-img {
+        width: 50px;
+        height: 50px;
+    }
 }
