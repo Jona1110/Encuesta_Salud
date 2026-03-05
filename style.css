@@ -299,22 +299,30 @@ button[type="submit"]:hover {
     }
 
     .main-header {
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: row; /* Mantenemos fila para que rodeen el texto */
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 10px;
     }
 
+    /* Usamos contents para que los hijos de logos-container 
+       sean tratados como hijos directos de main-header */
     .logos-container {
-        justify-content: center;
-        gap: 30px;
+        display: contents; 
     }
 
-    .escudo-img {
-        width: 70px;
-        height: 70px;
-    }
+    /* Ordenamos: Logo 1 - Texto - Logo 2 */
+    .escudo-img:nth-child(1) { order: 1; width: 65px; height: 65px; }
+    .header-text { order: 2; flex: 2; }
+    .escudo-img:nth-child(2) { order: 3; width: 65px; height: 65px; }
 
     h1 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+    }
+    
+    .header-text p {
+        font-size: 0.85rem;
+        padding: 0 5px;
     }
 }
 
@@ -325,16 +333,19 @@ button[type="submit"]:hover {
     }
 
     .escudo-img {
-        width: 60px;
-        height: 60px;
+        width: 55px;
+        height: 55px;
+        padding: 4px;
+        border-width: 2px;
     }
 
     h1 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
-    .header-text p {
-        font-size: 0.85rem;
+    .badge {
+        font-size: 0.65rem;
+        padding: 4px 10px;
     }
 
     label.main-label {
@@ -359,17 +370,17 @@ button[type="submit"]:hover {
 }
 
 /* Ajustes para pantallas extremadamente pequeñas */
-@media (max-width: 320px) {
-    h1 {
-        font-size: 1.2rem;
+@media (max-width: 350px) {
+    .main-header {
+        gap: 5px;
     }
-
-    .logos-container {
-        gap: 15px;
-    }
-
+    
     .escudo-img {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    h1 {
+        font-size: 1.1rem;
     }
 }
