@@ -81,7 +81,7 @@ loginSubmit.addEventListener('click', () => {
     const pass = document.getElementById('adminPass').value;
 
     // CREDENCIALES
-    if (user === "atziri" && pass === "220824") {
+    if (user === "Atziri" && pass === "220824") {
         window.location.href = "stats.html";
     } else {
         alert("Credenciales incorrectas.");
@@ -131,4 +131,5 @@ document.getElementById('pollForm').addEventListener('submit', function(e) {
         alert('Error al enviar.');
         btn.disabled = false;
     });
+
 });
